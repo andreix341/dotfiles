@@ -12,4 +12,17 @@
 	<startup-notify/>
 	<directories/>
 </action>
+<action>
+	<icon>applications-physics</icon>
+	<name>Open Jupyter Lab</name>
+	<submenu></submenu>
+	<unique-id>1772468167380810-1</unique-id>
+	<command>jupyter lab</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+	<text-files/>
+</action>
 </actions>

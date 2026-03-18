@@ -1,13 +1,12 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-   "logo": {
+  "logo": {
     "type": "auto",
     "color": {
       "1": "white",
       "2": "white"
     }
   },
-
   "display": {
     "color": {
       "keys": "magenta",
@@ -15,7 +14,6 @@
       "separator": "bright_black"
     }
   },
-
   "modules": [
     "title",
     "separator",
@@ -32,7 +30,6 @@
     "theme",
     "icons",
     "font",
-    "cursor",
     "terminal",
     "terminalfont",
     "cpu",
@@ -45,7 +42,5 @@
     "poweradapter",
     "locale",
     "break",
-    "colors"
   ]
 }
-

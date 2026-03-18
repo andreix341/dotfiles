@@ -4,8 +4,7 @@
     "output": "eDP-1",
     "modules-left": [
       "custom/launcher",
-      "hyprland/workspaces",
-      "wlr/taskbar"
+      "hyprland/workspaces"
     ],
     "modules-center": [
       "clock"
@@ -27,9 +26,14 @@
     "hyprland/workspaces": {
       "all-outputs": false,
       "disable-scroll": true,
-      "format": "{icon}",
+      "format": "{icon} {windows}",
       "wrap-scroll": false,
       "show-special": true,
+      "workspace-taskbar": {
+        "enable": true,
+        "format": "{icon}",
+        "on-click-window": "~/.config/waybar/scripts/focus-window.sh {address} {button}"
+      },
       "persistent-workspaces": {
         "eDP-1": [
           1,
@@ -46,15 +50,6 @@
         "4": "4",
         "5": "5"
       }
-    },
-    "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 18,
-      "icon-theme": "",
-      "tooltip-format": "{title}",
-      "on-click": "activate",
-      "on-click-middle": "close",
-      "all-outputs": false
     },
     "clock": {
       "format": "{:%I:%M %p}",
@@ -135,10 +130,10 @@
     },
     "pulseaudio": {
       "format": "{icon} {volume}%",
-      "format-muted": " muted",
+      "format-muted": "  muted",
       "format-source": " {volume}%",
       "format-source-muted": " muted",
-      "on-click": "pavucontrol",
+      "on-click": "easyeffects",
       "on-click-right": "/home/pumk/.config/waybar/scripts/volume-toggle.sh",
       "scroll-step": 5,
       "format-icons": [
@@ -189,8 +184,7 @@
     "output": "HDMI-A-1",
     "modules-left": [
       "custom/launcher",
-      "hyprland/workspaces",
-      "wlr/taskbar"
+      "hyprland/workspaces"
     ],
     "modules-center": [
       "mpris"
@@ -208,9 +202,14 @@
     "hyprland/workspaces": {
       "all-outputs": false,
       "disable-scroll": true,
-      "format": "{icon}",
+      "format": "{icon} {windows}",
       "wrap-scroll": false,
       "show-special": true,
+      "workspace-taskbar": {
+        "enable": true,
+        "format": "{icon}",
+        "on-click-window": "~/.config/waybar/scripts/focus-window.sh {address} {button}"
+      },
       "persistent-workspaces": {
         "HDMI-A-1": [
           "az",
@@ -225,15 +224,6 @@
         "cc": "C",
         "dv": "V"
       }
-    },
-    "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 18,
-      "icon-theme": "Prefer your theme, e.g., Papirus or Adwaita",
-      "tooltip-format": "{title}",
-      "on-click": "activate",
-      "on-click-middle": "close",
-      "all-outputs": false
     },
     "mpris": {
       "interval": 1,

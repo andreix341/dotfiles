@@ -36,6 +36,9 @@ return {
     opts = {
       mode = "toggleterm",
       focus = true,
+      before_run = function()
+        vim.cmd("write")
+      end,
       filetype = {
         python = "python3 -u",
         lua = "lua",

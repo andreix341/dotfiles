@@ -34,3 +34,20 @@ autostart
 remmina
 vlc
 dconf
+/.android
+/Android Open Source Project
+/Google/AndroidStudio2025.2.3
+/JetBrains/analyzer/workspaces
+/QDirStat
+/clamtk
+/galculator
+/r2modman
+/easyeffects/db
+/r2modmanPlus-local
+/rustdesk
+/songrec
+/sublime-text
+/xfce4
+/easyeffectsrc
+/zoom.conf
+/zoomus.conf
