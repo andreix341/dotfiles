@@ -10,7 +10,7 @@
 set -e
 
 DISTRO=$(lsb_release -si)
-DOTFILES_DIR="$HOME/.dotfiles"
+SCRIPT_DIR="$(dirname "$0")"
 
 # Propmt user which app to install
 
@@ -19,6 +19,9 @@ show_menu() {
   echo "------ Select an app to install ------"
   echo "1) Neovim (LazyVim)"
   echo "2) Hyprland"
+  echo "3) Noctalia"
+  echo "4) Fastfetch"
+  echo "5) Kitty"
   echo "3) Quit"
   echo ""
 }
@@ -47,7 +50,6 @@ install_neovim() {
   fi
 
   local nvim_dir="$HOME/.config/nvim"
-  local script_dir="$(dirname "$0")"
 
   if [ -L "$nvim_dir" ]; then
     rm "$nvim_dir"
@@ -55,14 +57,42 @@ install_neovim() {
     mv "$nvim_dir" "$nvim_dir.bak"
   fi
 
-  cp -r "$script_dir/nvim" "$nvim_dir"
+  cp -r "$SCRIPT_DIR/nvim" "$nvim_dir"
   echo "Neovim installed with LazyVim config!"
 
 }
 
 # Install hyprland
 intall_hyprland() {
-  echo "Installing Hyprland..."
+  echo "Configuring Hyprland..."
+  local hyprland_dir="$HOME/.config/hyprland"
+
+  if [ -L "$hyprland_dir" ]; then
+    rm "$hyprland_dir"
+  elif [ -d "$hyprland_dir" ]; then
+    mv "$hyprland_dir" "$hyprland_dir.bak"
+  fi
+
+  cp -r "$SCRIPT_DIR/hyprland" "$hyprland_dir"
+  echo "Hyprland configured!"
+}
+
+# Install Noctalia
+
+install_noctalia() {
+  echo "Installing Noctalia..."
+}
+
+# Install Fastfetch
+
+install_fastfetch() {
+  echo "Installing Fastfetch..."
+}
+
+# Install Kitty
+
+install_kitty() {
+  echo "Installing Kitty..."
 }
 
 while true; do
@@ -76,6 +106,16 @@ while true; do
     install_hyprland
     ;;
   3)
+    install_noctalia
+    ;;
+  4)
+    install_fastfetch
+    ;;
+  5)
+    install_kitty
+    ;;
+
+  6)
     exit 0
     ;;
   *)
