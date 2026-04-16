@@ -22,7 +22,7 @@ show_menu() {
   echo "3) Noctalia"
   echo "4) Fastfetch"
   echo "5) Kitty"
-  echo "3) Quit"
+  echo "6) Quit"
   echo ""
 }
 
@@ -63,9 +63,9 @@ install_neovim() {
 }
 
 # Install hyprland
-intall_hyprland() {
+install_hyprland() {
   echo "Configuring Hyprland..."
-  local hyprland_dir="$HOME/.config/hyprland"
+  local hyprland_dir="$HOME/.config/hypr"
 
   if [ -L "$hyprland_dir" ]; then
     rm "$hyprland_dir"
@@ -81,6 +81,22 @@ intall_hyprland() {
 
 install_noctalia() {
   echo "Installing Noctalia..."
+
+  local noctalia_dir="$HOME/.config/quickshell/noctalia-shell"
+
+  if [ -d "$noctalia_dir" ]; then
+    mv "$noctalia_dir" "$noctalia_dir.bak"
+    echo "Noctalia directory already exists. Backing up..."
+
+  fi
+  if ! command -v yay &>/dev/null; then
+    echo "yay (AUR helper) not found. Please install it first."
+    exit 1
+  fi
+  yay -S noctalia-shell
+  cp -r "$SCRIPT_DIR/noctalia-shell" "$noctalia_dir"
+  echo "Noctalia installed!"
+
 }
 
 # Install Fastfetch
