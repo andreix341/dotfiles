@@ -43,7 +43,7 @@ return {
         python = "python3 -u",
         lua = "lua",
         cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
         go = "go run",
         rust = "cargo run",
         typescript = "deno run",

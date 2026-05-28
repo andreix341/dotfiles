@@ -2,6 +2,6 @@
   "showHidden": true,
   "maxResults": 0,
   "fileOpener": "xdg-open",
-  "searchDirectory": "~",
+  "searchDirectory": "/",
   "fdCommand": "fd"
 }

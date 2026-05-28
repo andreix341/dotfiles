@@ -8,6 +8,7 @@
   "code_runner.nvim": { "branch": "main", "commit": "eed10eb4953bc172d7652f30d289a4e575028a98" },
   "conform.nvim": { "branch": "master", "commit": "086a40dc7ed8242c03be9f47fbcee68699cc2395" },
   "cutlass.nvim": { "branch": "main", "commit": "d01b5c1943050fcda8edf5c89d4419c41a65890e" },
+  "fff.nvim": { "branch": "main", "commit": "7de55be63d725d94944e5e89206284a67b8baa08" },
   "flash.nvim": { "branch": "main", "commit": "fcea7ff883235d9024dc41e638f164a450c14ca2" },
   "flutter-tools.nvim": { "branch": "main", "commit": "9cea350187ad942461dfb4d1f55f25100f53af7f" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },

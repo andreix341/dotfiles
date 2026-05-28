@@ -16,3 +16,8 @@ vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Navigate to right wi
 
 -- Escape terminal mode with Ctrl+; (alternative to Ctrl+\ Ctrl+n)
 vim.keymap.set("t", "<C-;>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- Snacks picker keymaps (file finder and live grep)
+vim.keymap.set("n", "<leader><leader>", function() require("snacks").picker.pick("files") end, { desc = "Find files" })
+vim.keymap.set("n", "ff", function() require("snacks").picker.pick("grep", { live = true }) end, { desc = "Live grep" })
+vim.keymap.set("n", "fz", function() require("snacks").picker.pick("grep", { live = true, regex = false }) end, { desc = "Live plain grep" })

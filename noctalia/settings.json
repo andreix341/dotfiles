@@ -56,7 +56,7 @@
         "hideOnOverview": false,
         "marginHorizontal": 1,
         "marginVertical": 1,
-        "middleClickAction": "none",
+        "middleClickAction": "settings",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
         "monitors": [
@@ -148,13 +148,6 @@
                             "id": "plugin:tailscale"
                         },
                         {
-                            "displayMode": "alwaysShow",
-                            "iconColor": "none",
-                            "id": "Volume",
-                            "middleClickCommand": "easyeffects",
-                            "textColor": "none"
-                        },
-                        {
                             "deviceNativePath": "BAT1",
                             "displayMode": "icon-always",
                             "hideIfIdle": false,
@@ -162,6 +155,13 @@
                             "id": "Battery",
                             "showNoctaliaPerformance": true,
                             "showPowerProfiles": true
+                        },
+                        {
+                            "displayMode": "alwaysShow",
+                            "iconColor": "none",
+                            "id": "Volume",
+                            "middleClickCommand": "easyeffects",
+                            "textColor": "none"
                         },
                         {
                             "hideWhenZero": false,
@@ -286,6 +286,9 @@
                             "usePadding": false
                         },
                         {
+                            "id": "plugin:clipper"
+                        },
+                        {
                             "colorizeDistroLogo": false,
                             "colorizeSystemIcon": "none",
                             "customIconPath": "",
@@ -318,6 +321,7 @@
             "left": [
                 {
                     "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": true,
                     "icon": "rocket",
@@ -445,6 +449,7 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
                     "icon": "noctalia",
@@ -469,6 +474,26 @@
                         "removeMargins": false
                     },
                     "id": "plugin:privacy-indicator"
+                },
+                {
+                    "defaultSettings": {
+                        "autoPaste": false,
+                        "autoPasteDelay": 300,
+                        "autoPasteOnRightClick": false,
+                        "cardColors": {
+                        },
+                        "customColors": {
+                        },
+                        "enableTodoIntegration": false,
+                        "fullscreenMode": false,
+                        "hidePanelBackground": false,
+                        "notecardsEnabled": true,
+                        "panelHeight": 0,
+                        "panelWidth": 1450,
+                        "pincardsEnabled": true,
+                        "showCloseButton": true
+                    },
+                    "id": "plugin:clipper"
                 }
             ]
         }
@@ -502,7 +527,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Ayu",
+        "predefinedScheme": "Lilac AMOLED",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": true
@@ -563,6 +588,11 @@
         "gridSnap": false,
         "gridSnapScale": false,
         "monitorWidgets": [
+            {
+                "name": "eDP-1",
+                "widgets": [
+                ]
+            }
         ],
         "overviewEnabled": true
     },
@@ -573,7 +603,7 @@
         "deadOpacity": 0.6,
         "displayMode": "auto_hide",
         "dockType": "floating",
-        "enabled": true,
+        "enabled": false,
         "floatingRatio": 1,
         "groupApps": false,
         "groupClickAction": "cycle",
@@ -684,12 +714,12 @@
         "enabled": true,
         "fadeDuration": 5,
         "lockCommand": "",
-        "lockTimeout": 660,
+        "lockTimeout": 1060,
         "resumeLockCommand": "",
         "resumeScreenOffCommand": "",
         "resumeSuspendCommand": "",
         "screenOffCommand": "",
-        "screenOffTimeout": 600,
+        "screenOffTimeout": 1000,
         "suspendCommand": "",
         "suspendTimeout": 1800
     },
@@ -876,6 +906,10 @@
     },
     "templates": {
         "activeTemplates": [
+            {
+                "enabled": true,
+                "id": "gtk"
+            }
         ],
         "enableUserTheming": false
     },
@@ -900,7 +934,8 @@
         "enabled": true,
         "favorites": [
             {
-                "colorScheme": "Ayu",
+                "appearance": "dark",
+                "colorScheme": "Lilac AMOLED",
                 "darkMode": true,
                 "generationMethod": "monochrome",
                 "paletteColors": [

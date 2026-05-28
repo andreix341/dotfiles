@@ -1,6 +1,6 @@
 {
   "refreshInterval": 5000,
-  "compactMode": false,
+  "compactMode": true,
   "showIpAddress": false,
   "showPeerCount": false,
   "hideDisconnected": false,
@@ -8,5 +8,9 @@
   "terminalCommand": "kitty",
   "sshUsername": "",
   "pingCount": 5,
-  "defaultPeerAction": "copy-ip"
+  "defaultPeerAction": "copy-ip",
+  "taildropEnabled": true,
+  "taildropDownloadDir": "~/Downloads",
+  "taildropReceiveMode": "operator",
+  "loginServer": ""
 }
