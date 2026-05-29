@@ -9,14 +9,12 @@
   },
   "display": {
     "color": {
-      "keys": "magenta",
+      "keys": "#A854F7",
       "output": "white",
       "separator": "bright_black"
     }
   },
   "modules": [
-    "title",
-    "separator",
     "os",
     "host",
     "kernel",
@@ -35,12 +33,9 @@
     "cpu",
     "gpu",
     "memory",
-    "swap",
     "disk",
-    "localip",
     "battery",
     "poweradapter",
-    "locale",
-    "break",
+    "break"
   ]
 }

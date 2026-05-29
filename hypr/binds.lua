@@ -38,8 +38,7 @@ hl.bind("SUPER + P", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu 
 hl.bind("ALT_L + SHIFT_L", hl.dsp.exec_cmd("hyprctl switchxkblayout all next && ~/.config/hypr/scripts/keyboard.sh"))
 
 -- Vesktop push-to-mute (mouse thumb button → Ctrl+Shift+M in Vesktop)
-hl.bind("mouse:277", hl.dsp.exec_cmd("hyprctl dispatch sendshortcut control_shift,M,class:^(vesktop)$"))
-
+hl.bind("mouse:277", hl.dsp.send_shortcut({ mods = "ctrl_shift", key = "M", window = "class:^(vesktop)$" }))
 ------------------
 ---- FOCUS -------
 ------------------
