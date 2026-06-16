@@ -6,11 +6,45 @@
 # noctalia
 # fastfetch
 # kitty
+# tmux
 
 set -e
 
 DISTRO=$(lsb_release -si)
 SCRIPT_DIR="$(dirname "$0")"
+
+install_package() {
+  local binary=$1
+  local package=$2
+
+  if command -v "$binary" &>/dev/null; then
+    return 0
+  fi
+
+  read -p "$package is not installed. Install it? [Y/n] " answer
+  case "${answer:-Y}" in
+    [Yy]*)
+      case $DISTRO in
+      "Ubuntu")
+        sudo apt update && sudo apt install -y "$package"
+        ;;
+      "Fedora")
+        sudo dnf install -y "$package"
+        ;;
+      "Arch")
+        sudo pacman -S --noconfirm "$package"
+        ;;
+      *)
+        echo "Unsupported distribution: $DISTRO"
+        exit 1
+        ;;
+      esac
+      ;;
+    *)
+      echo "Skipping installation of $package."
+      ;;
+  esac
+}
 
 # Propmt user which app to configure
 
@@ -24,7 +58,8 @@ show_menu() {
   echo "3) Noctalia"
   echo "4) Fastfetch"
   echo "5) Kitty"
-  echo "6) Quit"
+  echo "6) Tmux"
+  echo "7) Quit"
   echo ""
 }
 
@@ -33,23 +68,7 @@ show_menu() {
 configure_neovim() {
   echo "Configuring Neovim..."
 
-  if ! command -v nvim &>/dev/null; then
-    case $DISTRO in
-    "Ubuntu")
-      sudo apt update && sudo apt install -y neovim
-      ;;
-    "Fedora")
-      sudo dnf install -y neovim
-      ;;
-    "Arch")
-      sudo pacman -S --noconfirm neovim
-      ;;
-    *)
-      echo "Unsupported distribution: $DISTRO"
-      exit 1
-      ;;
-    esac
-  fi
+  install_package nvim neovim
 
   local nvim_dir="$HOME/.config/nvim"
 
@@ -68,23 +87,7 @@ configure_neovim() {
 configure_hyprland() {
   echo "Configuring Hyprland..."
 
-  if ! command -v hyprctl &>/dev/null; then
-    case $DISTRO in
-    "Ubuntu")
-      sudo apt update && sudo apt install -y hyprland
-      ;;
-    "Fedora")
-      sudo dnf install -y hyprland
-      ;;
-    "Arch")
-      sudo pacman -S --noconfirm hyprland
-      ;;
-    *)
-      echo "Unsupported distribution: $DISTRO"
-      exit 1
-      ;;
-    esac
-  fi
+  install_package hyprctl hyprland
 
   local hyprland_dir="$HOME/.config/hypr"
 
@@ -126,23 +129,7 @@ configure_noctalia() {
 configure_fastfetch() {
   echo "Configuring Fastfetch..."
 
-  if ! command -v fastfetch &>/dev/null; then
-    case $DISTRO in
-    "Ubuntu")
-      sudo apt update && sudo apt install -y fastfetch
-      ;;
-    "Fedora")
-      sudo dnf install -y fastfetch
-      ;;
-    "Arch")
-      sudo pacman -S --noconfirm fastfetch
-      ;;
-    *)
-      echo "Unsupported distribution: $DISTRO"
-      exit 1
-      ;;
-    esac
-  fi
+  install_package fastfetch fastfetch
 
   local fastfetch_dir="$HOME/.config/fastfetch"
 
@@ -162,23 +149,7 @@ configure_fastfetch() {
 configure_kitty() {
   echo "Configuring Kitty..."
 
-  if ! command -v kitty &>/dev/null; then
-    case $DISTRO in
-    "Ubuntu")
-      sudo apt update && sudo apt install -y kitty
-      ;;
-    "Fedora")
-      sudo dnf install -y kitty
-      ;;
-    "Arch")
-      sudo pacman -S --noconfirm kitty
-      ;;
-    *)
-      echo "Unsupported distribution: $DISTRO"
-      exit 1
-      ;;
-    esac
-  fi
+  install_package kitty kitty
 
   local kitty_dir="$HOME/.config/kitty"
 
@@ -193,6 +164,26 @@ configure_kitty() {
   echo ""
 }
 
+# Configure Tmux
+
+configure_tmux() {
+  echo "Configuring Tmux..."
+
+  install_package tmux tmux
+
+  local tmux_dir="$HOME/.config/tmux"
+
+  if [ -L "$tmux_dir" ]; then
+    rm "$tmux_dir"
+  elif [ -d "$tmux_dir" ]; then
+    mv "$tmux_dir" "$tmux_dir.bak"
+  fi
+
+  cp -r "$SCRIPT_DIR/tmux" "$tmux_dir"
+  echo "Tmux configured!"
+  echo ""
+}
+
 while true; do
   show_menu
   read -p "Enter your choice: " choice
@@ -203,6 +194,7 @@ while true; do
     configure_noctalia
     configure_fastfetch
     configure_kitty
+    configure_tmux
     ;;
   1)
     configure_neovim
@@ -219,8 +211,10 @@ while true; do
   5)
     configure_kitty
     ;;
-
   6)
+    configure_tmux
+    ;;
+  7)
     exit 0
     ;;
   *)
