@@ -19,7 +19,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@60", position = "0x0", scale
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("qs -c noctalia-shell")
-	hl.exec_cmd("bash -c 'sleep 2 && wayvnc 100.102.28.112 5900'")
+	hl.exec_cmd("bash -c 'sleep 2 && wayvnc -o eDP-1 100.102.28.112 5900'")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
