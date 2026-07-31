@@ -4,6 +4,16 @@
             "enabled": true,
             "name": "Noctalia Plugins",
             "url": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        {
+            "enabled": false,
+            "name": "Official",
+            "url": "https://github.com/noctalia-dev/official-plugins"
+        },
+        {
+            "enabled": false,
+            "name": "Community",
+            "url": "https://github.com/noctalia-dev/community-plugins"
         }
     ],
     "states": {
@@ -39,7 +49,15 @@
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
+        "noctalia-calculator": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
         "privacy-indicator": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        "simple-notes": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },

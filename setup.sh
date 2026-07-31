@@ -23,26 +23,26 @@ install_package() {
 
   read -p "$package is not installed. Install it? [Y/n] " answer
   case "${answer:-Y}" in
-    [Yy]*)
-      case $DISTRO in
-      "Ubuntu")
-        sudo apt update && sudo apt install -y "$package"
-        ;;
-      "Fedora")
-        sudo dnf install -y "$package"
-        ;;
-      "Arch")
-        sudo pacman -S --noconfirm "$package"
-        ;;
-      *)
-        echo "Unsupported distribution: $DISTRO"
-        exit 1
-        ;;
-      esac
+  [Yy]*)
+    case $DISTRO in
+    "Ubuntu")
+      sudo apt update && sudo apt install -y "$package"
+      ;;
+    "Fedora")
+      sudo dnf install -y "$package"
+      ;;
+    "Arch")
+      sudo pacman -S --noconfirm "$package"
       ;;
     *)
-      echo "Skipping installation of $package."
+      echo "Unsupported distribution: $DISTRO"
+      exit 1
       ;;
+    esac
+    ;;
+  *)
+    echo "Skipping installation of $package."
+    ;;
   esac
 }
 
