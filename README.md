@@ -17,9 +17,11 @@ chmod +x setup.sh
 
 ### Utilities
 
-- EasyEffects
-- btop
-- timeshift
-- fastfetch
+- [Oh My Zsh](https://ohmyz.sh/)
+- [EasyEffects](https://github.com/wwmm/easyeffects)
+- [btop](https://github.com/aristocratos/btop)
+- [timeshift](https://github.com/linuxmint/timeshift)
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch)
+- [spicetify](https://spicetify.app/)
 
 ---
