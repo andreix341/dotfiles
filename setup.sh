@@ -8,10 +8,15 @@
 # kitty
 # tmux
 
-set -e
-
 DISTRO=$(lsb_release -si)
 SCRIPT_DIR="$(dirname "$0")"
+
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+success() {
+  echo -e "\n${GREEN}${1}${NC}\n"
+}
 
 install_package() {
   local binary=$1
@@ -59,7 +64,7 @@ show_menu() {
   echo "4) Fastfetch"
   echo "5) Kitty"
   echo "6) Tmux"
-  echo "7) Quit"
+  echo "q) Quit"
   echo ""
 }
 
@@ -79,8 +84,7 @@ configure_neovim() {
   fi
 
   cp -r "$SCRIPT_DIR/nvim" "$nvim_dir"
-  echo "Neovim configured with LazyVim config!"
-  echo ""
+  success "Neovim configured with LazyVim config!"
 }
 
 # Configure hyprland
@@ -97,9 +101,8 @@ configure_hyprland() {
     mv "$hyprland_dir" "$hyprland_dir.bak"
   fi
 
-  cp -r "$SCRIPT_DIR/hyprland" "$hyprland_dir"
-  echo "Hyprland configured!"
-  echo ""
+  cp -r "$SCRIPT_DIR/hypr" "$hyprland_dir"
+  success "Hyprland configured!"
 }
 
 # Configure Noctalia
@@ -115,13 +118,12 @@ configure_noctalia() {
 
   fi
   if ! command -v yay &>/dev/null; then
-    echo "yay (AUR helper) not found. Please install it first."
-    exit 1
+    echo "yay (AUR helper) not found. Skipping Noctalia install."
+    return 1
   fi
-  yay -S noctalia-shell
-  cp -r "$SCRIPT_DIR/noctalia-shell" "$noctalia_dir"
-  echo "Noctalia configured!"
-  echo ""
+  yay -S --noconfirm noctalia-shell
+  cp -r "$SCRIPT_DIR/noctalia" "$noctalia_dir"
+  success "Noctalia configured!"
 }
 
 # Configure Fastfetch
@@ -140,8 +142,7 @@ configure_fastfetch() {
   fi
 
   cp -r "$SCRIPT_DIR/fastfetch" "$fastfetch_dir"
-  echo "Fastfetch configured!"
-  echo ""
+  success "Fastfetch configured!"
 }
 
 # Configure Kitty
@@ -160,8 +161,7 @@ configure_kitty() {
   fi
 
   cp -r "$SCRIPT_DIR/kitty" "$kitty_dir"
-  echo "Kitty configured!"
-  echo ""
+  success "Kitty configured!"
 }
 
 # Configure Tmux
@@ -180,8 +180,20 @@ configure_tmux() {
   fi
 
   cp -r "$SCRIPT_DIR/tmux" "$tmux_dir"
-  echo "Tmux configured!"
-  echo ""
+
+  if [ ! -f "$tmux_dir/plugins/tpm/bin/init.tmux" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$tmux_dir/plugins/tpm"
+  fi
+
+  started_server=0
+  if ! tmux has-session 2>/dev/null; then
+    tmux start-server
+    started_server=1
+  fi
+  "$tmux_dir/plugins/tpm/bin/install_plugins"
+  [ "$started_server" = 1 ] && tmux kill-server 2>/dev/null
+
+  success "Tmux configured!"
 }
 
 while true; do
@@ -214,7 +226,7 @@ while true; do
   6)
     configure_tmux
     ;;
-  7)
+  q)
     exit 0
     ;;
   *)

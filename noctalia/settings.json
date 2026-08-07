@@ -202,7 +202,7 @@
                             "showAlbumArt": true,
                             "showArtistFirst": false,
                             "showProgressRing": true,
-                            "showVisualizer": true,
+                            "showVisualizer": false,
                             "textColor": "none",
                             "useFixedWidth": false,
                             "visualizerType": "mirrored"
