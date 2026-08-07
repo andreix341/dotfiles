@@ -57,6 +57,7 @@ show_menu() {
   echo ""
   echo "------ Select an app to configure ------"
   echo "0) All"
+  echo "q) Quit"
   echo ""
   echo "1) Neovim (LazyVim)"
   echo "2) Hyprland"
@@ -64,7 +65,6 @@ show_menu() {
   echo "4) Fastfetch"
   echo "5) Kitty"
   echo "6) Tmux"
-  echo "q) Quit"
   echo ""
 }
 
@@ -80,7 +80,7 @@ configure_neovim() {
   if [ -L "$nvim_dir" ]; then
     rm "$nvim_dir"
   elif [ -d "$nvim_dir" ]; then
-    mv "$nvim_dir" "$nvim_dir.bak"
+    mv "$nvim_dir" "$nvim_dir.bak.$(date +%Y%m%d-%H%M%S)"
   fi
 
   cp -r "$SCRIPT_DIR/nvim" "$nvim_dir"
@@ -98,7 +98,7 @@ configure_hyprland() {
   if [ -L "$hyprland_dir" ]; then
     rm "$hyprland_dir"
   elif [ -d "$hyprland_dir" ]; then
-    mv "$hyprland_dir" "$hyprland_dir.bak"
+    mv "$hyprland_dir" "$hyprland_dir.bak.$(date +%Y%m%d-%H%M%S)"
   fi
 
   cp -r "$SCRIPT_DIR/hypr" "$hyprland_dir"
@@ -113,7 +113,7 @@ configure_noctalia() {
   local noctalia_dir="$HOME/.config/quickshell/noctalia-shell"
 
   if [ -d "$noctalia_dir" ]; then
-    mv "$noctalia_dir" "$noctalia_dir.bak"
+    mv "$noctalia_dir" "$noctalia_dir.bak.$(date +%Y%m%d-%H%M%S)"
     echo "Noctalia directory already exists. Backing up..."
 
   fi
@@ -138,7 +138,7 @@ configure_fastfetch() {
   if [ -L "$fastfetch_dir" ]; then
     rm "$fastfetch_dir"
   elif [ -d "$fastfetch_dir" ]; then
-    mv "$fastfetch_dir" "$fastfetch_dir.bak"
+    mv "$fastfetch_dir" "$fastfetch_dir.bak.$(date +%Y%m%d-%H%M%S)"
   fi
 
   cp -r "$SCRIPT_DIR/fastfetch" "$fastfetch_dir"
@@ -157,7 +157,7 @@ configure_kitty() {
   if [ -L "$kitty_dir" ]; then
     rm "$kitty_dir"
   elif [ -d "$kitty_dir" ]; then
-    mv "$kitty_dir" "$kitty_dir.bak"
+    mv "$kitty_dir" "$kitty_dir.bak.$(date +%Y%m%d-%H%M%S)"
   fi
 
   cp -r "$SCRIPT_DIR/kitty" "$kitty_dir"
@@ -176,7 +176,7 @@ configure_tmux() {
   if [ -L "$tmux_dir" ]; then
     rm "$tmux_dir"
   elif [ -d "$tmux_dir" ]; then
-    mv "$tmux_dir" "$tmux_dir.bak"
+    mv "$tmux_dir" "$tmux_dir.bak.$(date +%Y%m%d-%H%M%S)"
   fi
 
   cp -r "$SCRIPT_DIR/tmux" "$tmux_dir"
@@ -197,8 +197,10 @@ configure_tmux() {
 }
 
 while true; do
+  clear
   show_menu
-  read -p "Enter your choice: " choice
+  read -p "Enter your choice: " choice || break
+  echo ""
   case $choice in
   0)
     configure_neovim
@@ -233,4 +235,5 @@ while true; do
     echo "Invalid choice. Please try again."
     ;;
   esac
+  read -p "Press Enter to continue... " _ || break
 done
