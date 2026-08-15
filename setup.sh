@@ -7,6 +7,8 @@
 # fastfetch
 # kitty
 # tmux
+# btop
+# cava
 
 DISTRO=$(lsb_release -si)
 SCRIPT_DIR="$(dirname "$0")"
@@ -65,6 +67,8 @@ show_menu() {
   echo "4) Fastfetch"
   echo "5) Kitty"
   echo "6) Tmux"
+  echo "7) Btop"
+  echo "8) Cava"
   echo ""
 }
 
@@ -196,6 +200,44 @@ configure_tmux() {
   success "Tmux configured!"
 }
 
+# Configure btop
+
+configure_btop() {
+  echo "Configuring btop..."
+
+  install_package btop btop
+
+  local btop_dir="$HOME/.config/btop"
+
+  if [ -L "$btop_dir" ]; then
+    rm "$btop_dir"
+  elif [ -d "$btop_dir" ]; then
+    mv "$btop_dir" "$btop_dir.bak.$(date +%Y%m%d-%H%M%S)"
+  fi
+
+  cp -r "$SCRIPT_DIR/btop" "$btop_dir"
+  success "Btop configured!"
+}
+
+# Configure cava
+
+configure_cava() {
+  echo "Configuring cava..."
+
+  install_package cava cava
+
+  local cava_dir="$HOME/.config/cava"
+
+  if [ -L "$cava_dir" ]; then
+    rm "$cava_dir"
+  elif [ -d "$cava_dir" ]; then
+    mv "$cava_dir" "$cava_dir.bak.$(date +%Y%m%d-%H%M%S)"
+  fi
+
+  cp -r "$SCRIPT_DIR/cava" "$cava_dir"
+  success "Cava configured!"
+}
+
 while true; do
   clear
   show_menu
@@ -209,6 +251,8 @@ while true; do
     configure_fastfetch
     configure_kitty
     configure_tmux
+    configure_btop
+    configure_cava
     ;;
   1)
     configure_neovim
@@ -227,6 +271,12 @@ while true; do
     ;;
   6)
     configure_tmux
+    ;;
+  7)
+    configure_btop
+    ;;
+  8)
+    configure_cava
     ;;
   q)
     exit 0

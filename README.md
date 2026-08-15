@@ -53,6 +53,60 @@ The setup menu supports installing everything (`0`) or configuring each app indi
 4. **Fastfetch**
 5. **Kitty**
 6. **Tmux**
+7. **Btop**
+8. **Cava**
+
+## SDDM
+
+Install the display manager and a login screen theme.
+
+**1. Install SDDM**
+
+```sh
+sudo apt install sddm        # Ubuntu/Debian
+sudo dnf install sddm        # Fedora
+sudo pacman -S sddm          # Arch
+```
+
+**2. Copy the theme to the system themes folder**
+
+SDDM looks for themes in `/usr/share/sddm/themes`. Put the `silent` theme folder from this repo there:
+
+```sh
+sudo cp -r sddm/themes/silent /usr/share/sddm/themes/
+```
+
+**3. Activate the theme**
+
+Point SDDM to it in `/etc/sddm.conf`:
+
+```ini
+[Theme]
+Current=silent
+```
+
+Create `/etc/sddm.conf` first if it does not exist. The theme name must match the folder name in `/usr/share/sddm/themes`.
+
+**4. Enable SDDM**
+
+```sh
+sudo systemctl enable --now sddm
+```
+
+**5. Test the theme**
+
+```sh
+sddm --test-mode --theme /usr/share/sddm/themes/silent
+```
+
+Optionally hide the user list in `/usr/share/sddm/themes/silent/theme.conf`:
+
+```ini
+[General]
+InputMethod=
+```
+
+More details: [Arch Wiki SDDM](https://wiki.archlinux.org/title/SDDM) and [`sddm.conf(5)`](https://man.archlinux.org/man/sddm.conf.5.en).
 
 ## Utilities
 
