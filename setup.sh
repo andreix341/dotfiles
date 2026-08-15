@@ -9,6 +9,7 @@
 # tmux
 # btop
 # cava
+# opencode
 
 DISTRO=$(lsb_release -si)
 SCRIPT_DIR="$(dirname "$0")"
@@ -69,6 +70,7 @@ show_menu() {
   echo "6) Tmux"
   echo "7) Btop"
   echo "8) Cava"
+  echo "9) OpenCode"
   echo ""
 }
 
@@ -238,6 +240,25 @@ configure_cava() {
   success "Cava configured!"
 }
 
+# Configure opencode
+
+configure_opencode() {
+  echo "Configuring opencode..."
+
+  install_package opencode opencode
+
+  local opencode_dir="$HOME/.config/opencode"
+
+  if [ -L "$opencode_dir" ]; then
+    rm "$opencode_dir"
+  elif [ -d "$opencode_dir" ]; then
+    mv "$opencode_dir" "$opencode_dir.bak.$(date +%Y%m%d-%H%M%S)"
+  fi
+
+  cp -r "$SCRIPT_DIR/opencode" "$opencode_dir"
+  success "OpenCode configured!"
+}
+
 while true; do
   clear
   show_menu
@@ -253,6 +274,7 @@ while true; do
     configure_tmux
     configure_btop
     configure_cava
+    configure_opencode
     ;;
   1)
     configure_neovim
@@ -277,6 +299,9 @@ while true; do
     ;;
   8)
     configure_cava
+    ;;
+  9)
+    configure_opencode
     ;;
   q)
     exit 0

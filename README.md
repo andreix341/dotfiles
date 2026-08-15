@@ -55,6 +55,7 @@ The setup menu supports installing everything (`0`) or configuring each app indi
 6. **Tmux**
 7. **Btop**
 8. **Cava**
+9. **OpenCode**
 
 ## SDDM
 
