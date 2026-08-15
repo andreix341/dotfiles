@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Moonveil
+Comment=A Moonveil-themed Material design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Moonveil
+MetacityTheme=Material-Black-Plum
+IconTheme=Material-Black-Plum
+CursorTheme=Material-Black-Plum
+CursorSize=24

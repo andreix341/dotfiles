@@ -82,7 +82,7 @@
                         },
                         {
                             "clockColor": "primary",
-                            "customFont": "Sans Serif",
+                            "customFont": "GohuFont 11 Nerd Font",
                             "formatHorizontal": "hh:mm AP | dd.MM.yyyy",
                             "formatVertical": "HH mm - dd MM",
                             "id": "Clock",
@@ -931,9 +931,9 @@
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "Sans Serif",
+        "fontDefault": "GohuFont uni11 Nerd Font",
         "fontDefaultScale": 1,
-        "fontFixed": "monospace",
+        "fontFixed": "GohuFont uni14 Nerd Font Mono",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,

@@ -256,15 +256,16 @@ bar_width = 2
 # Gradient mode, only hex defined colors are supported,
 # background must also be defined in hex or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
+# Moonveil palette gradient (bottom to top)
 gradient = 1
-gradient_color_1 = '#4a0e78'
-gradient_color_2 = '#8b34d8'
-gradient_color_3 = '#c17ffc'
-gradient_color_4 = '#e6ccff'
-gradient_color_5 = '#f5ecff'
-gradient_color_6 = '#fbf6ff'
-gradient_color_7 = '#fefdff'
-gradient_color_8 = '#ffffff'
+gradient_color_1 = '#241D33'
+gradient_color_2 = '#C792EA'
+gradient_color_3 = '#C6A0F6'
+gradient_color_4 = '#B5B9F0'
+gradient_color_5 = '#EEEEEE'
+gradient_color_6 = '#FFFFFF'
+gradient_color_7 = '#FFFFFF'
+gradient_color_8 = '#FFFFFF'
 
 
 # Horizontal is only supported on noncurses output.

@@ -15,7 +15,7 @@ hl.bind("SUPER + R", hl.dsp.exec_cmd(menu))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("kitty -e nvim"))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind("SUPER + U", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
-hl.bind("SUPER + F1", hl.dsp.exec_cmd("hyprpicker"))
+hl.bind("SUPER + F1", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind("SUPER + F2", hl.dsp.exec_cmd("togglemangohud"))
 hl.bind("SUPER + F5", hl.dsp.exec_cmd("hyprctl reload"))
 
