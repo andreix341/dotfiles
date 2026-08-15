@@ -55,9 +55,9 @@ The setup menu supports installing everything (`0`) or configuring each app indi
 6. **Tmux**
 7. **Btop**
 8. **Cava**
-9. **OpenCode**
+9. **Opencode**
 
-## SDDM
+### SDDM
 
 Install the display manager and a login screen theme.
 
@@ -121,6 +121,7 @@ More details: [Arch Wiki SDDM](https://wiki.archlinux.org/title/SDDM) and [`sddm
 **Terminal**
 
 - [tmux](https://github.com/tmux/tmux)
+- [opencode](https://github.com/fabiokr/opencode)
 - [Oh My Zsh](https://ohmyz.sh/)
 - [btop](https://github.com/aristocratos/btop)
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch)
