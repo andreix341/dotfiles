@@ -1,7 +1,6 @@
 vim.g.colors_name = "moonveil"
-vim.o.background = "dark"
 
-local p = {
+local dark = {
   bg = "#000000",
   bg_alt = "#000000",
   bg_float = "#000000",
@@ -12,9 +11,9 @@ local p = {
   bg_dim = "#000000",
   fg = "#EEEEEE",
   white = "#FFFFFF",
-  purple = "#C792EA",
+  purple = "#C9A0DC",
   purple_soft = "#C6A0F6",
-  lavender = "#B5B9F0",
+  lavender = "#D3D3FF",
   teal = "#98C379",
   green = "#5FB878",
   red = "#F06C6C",
@@ -25,6 +24,33 @@ local p = {
   bracket = "#C8C8C8",
   dim = "#6D6964",
 }
+
+local light = {
+  bg = "#F2F2F2",
+  bg_alt = "#F2F2F2",
+  bg_float = "#FFFFFF",
+  bg_cursor = "#E4E4E4",
+  bg_select = "#E8DDF3",
+  bg_border = "#E4E4E4",
+  bg_diff = "#F2F2F2",
+  bg_dim = "#F2F2F2",
+  fg = "#1A1A1A",
+  white = "#1A1A1A",
+  purple = "#8A4FB0",
+  purple_soft = "#A86ED0",
+  lavender = "#6B74B8",
+  teal = "#5C8A48",
+  green = "#3F9860",
+  red = "#C23B3B",
+  orange = "#B87A2E",
+  pink = "#C23B8B",
+  cyan = "#3E6BB8",
+  gray = "#414141",
+  bracket = "#555555",
+  dim = "#555555",
+}
+
+local p = vim.o.background == "light" and light or dark
 
 local hl = function(name, val)
   vim.api.nvim_set_hl(0, name, val)
@@ -37,7 +63,7 @@ end
 -- ============================================================================
 -- Terminal palette
 -- ============================================================================
-local term = {
+local term_dark = {
   "#000000",
   "#F06C6C",
   "#5FB878",
@@ -55,6 +81,27 @@ local term = {
   "#A9CBE0",
   "#FFFFFF",
 }
+
+local term_light = {
+  "#545454",
+  "#C23B3B",
+  "#3F9860",
+  "#B87A2E",
+  "#3E6BB8",
+  "#8A4FB0",
+  "#5C8A48",
+  "#1A1A1A",
+  "#6E6E6E",
+  "#E05A5A",
+  "#5BB57A",
+  "#D9944A",
+  "#5A86D4",
+  "#A86ED0",
+  "#7AA86A",
+  "#000000",
+}
+
+local term = vim.o.background == "light" and term_light or term_dark
 for i, col in ipairs(term) do
   vim.g["terminal_color_" .. (i - 1)] = col
 end
@@ -382,8 +429,8 @@ hl("NeoTreeModified", { fg = p.pink })
 -- ============================================================================
 -- Snacks picker
 -- ============================================================================
-hl("SnacksPickerListCursorLine", { fg = p.fg, bg = "#241D33" })
-hl("SnacksPickerPreviewCursorLine", { fg = p.fg, bg = "#241D33" })
+hl("SnacksPickerListCursorLine", { fg = p.fg, bg = p.bg_select })
+hl("SnacksPickerPreviewCursorLine", { fg = p.fg, bg = p.bg_select })
 hl("SnacksPickerInputBorder", { fg = p.purple })
 hl("SnacksPickerInputTitle", { fg = p.purple })
 hl("SnacksPickerBoxTitle", { fg = p.purple_soft, bold = true })

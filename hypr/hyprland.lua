@@ -18,7 +18,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@60", position = "0x0", scale
 -------------------
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("noctalia")
 	hl.exec_cmd("bash -c 'sleep 2 && wayvnc -o eDP-1 100.102.28.112 5900'")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -31,9 +31,9 @@ end)
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 
-hl.env("XCURSOR_THEME", "Catppuccin Mocha Mauve")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "20")
-hl.env("HYPRCURSOR_THEME", "Catppuccin Mocha Mauve")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "20")
 
 -----------------------
@@ -178,9 +178,3 @@ hl.config({
 	xwayland = { force_zero_scaling = true },
 	cursor = { no_hardware_cursors = true },
 })
-
------------
--- THEME --
------------
-
--- require("noctalia.noctalia-colors")

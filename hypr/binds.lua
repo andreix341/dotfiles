@@ -3,7 +3,6 @@
 
 local terminal = "kitty"
 local fileManager = "thunar"
-local menu = "qs -c noctalia-shell ipc call launcher toggle"
 
 --------------------
 ---- APP LAUNCH ----
@@ -11,7 +10,6 @@ local menu = "qs -c noctalia-shell ipc call launcher toggle"
 
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(fileManager))
-hl.bind("SUPER + R", hl.dsp.exec_cmd(menu))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("kitty -e nvim"))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind("SUPER + U", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
@@ -19,6 +17,17 @@ hl.bind("SUPER + F1", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind("SUPER + F2", hl.dsp.exec_cmd("togglemangohud"))
 hl.bind("SUPER + F5", hl.dsp.exec_cmd("hyprctl reload"))
 
+------------------------
+---- NOCTALIA ----
+------------------------
+
+-- hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
+-- hl.bind("SUPER + M", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call lockScreen lock"))
+-- hl.bind("SUPER + P", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu toggle"))
+
+hl.bind("SUPER + R", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
+hl.bind("SUPER + M", hl.dsp.exec_cmd("noctalia msg session lock"))
+hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 -----------------------
 ---- WINDOW CONTROL ----
 -----------------------
@@ -26,13 +35,6 @@ hl.bind("SUPER + F5", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind("SUPER + W", hl.dsp.window.close())
 hl.bind("SUPER + B", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
-
-----------------------
----- SHELL / SYSTEM ---
-----------------------
-
-hl.bind("SUPER + M", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call lockScreen lock"))
-hl.bind("SUPER + P", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu toggle"))
 
 -- Keyboard layout switch
 hl.bind(

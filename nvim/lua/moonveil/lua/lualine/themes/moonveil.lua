@@ -1,4 +1,4 @@
-local p = {
+local dark = {
   bg = "#000000",
   fg = "#EEEEEE",
   dim = "#6D6964",
@@ -11,6 +11,22 @@ local p = {
   red = "#F06C6C",
   cyan = "#8FB9D8",
 }
+
+local light = {
+  bg = "#F2F2F2",
+  fg = "#1A1A1A",
+  dim = "#555555",
+  mauve = "#5A649D",
+  purple = "#7A4490",
+  purple_soft = "#925BB8",
+  green = "#4A7A38",
+  pink = "#AC2F78",
+  orange = "#A16A28",
+  red = "#AC2F2F",
+  cyan = "#33579C",
+}
+
+local p = vim.o.background == "light" and light or dark
 
 local M = {
   normal = {

@@ -12,8 +12,4 @@ ln -sfn "$THEME/gtk-4.0/assets" "$GTK4/assets"
 
 echo '@import url("noctalia.css");' > "$GTK4/gtk.css"
 
-sed -i 's/^gtk-theme-name=.*$/gtk-theme-name=Moonveil/' "$GTK3/settings.ini" "$GTK4/settings.ini"
-grep -q '^gtk-theme-name=' "$GTK3/settings.ini" || echo 'gtk-theme-name=Moonveil' >> "$GTK3/settings.ini"
-grep -q '^gtk-theme-name=' "$GTK4/settings.ini" || echo 'gtk-theme-name=Moonveil' >> "$GTK4/settings.ini"
-
-echo "Moonveil GTK theme installed."
+echo "Moonveil GTK theme symlinked. gtk-theme-name is managed by noctalia (adw-gtk-theme)."
