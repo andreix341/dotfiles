@@ -12,8 +12,13 @@ hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
 hl.workspace_rule({ workspace = "4", monitor = "eDP-1", persistent = true })
 hl.workspace_rule({ workspace = "5", monitor = "eDP-1", persistent = true })
 
--- HDMI-A-1 (external monitor) → letter-keyed workspaces 10/20/30/40
-hl.workspace_rule({ workspace = "10", monitor = "HDMI-A-1", persistent = true, default = true })
+-- HDMI-A-1 (external monitor) → numbered workspaces 10/20/30/40
+hl.workspace_rule({
+	workspace = "10",
+	monitor = "HDMI-A-1",
+	persistent = true,
+	default = true,
+})
 hl.workspace_rule({ workspace = "20", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "30", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "40", monitor = "HDMI-A-1", persistent = true })

@@ -13,7 +13,7 @@
   <img src="media/screenshots/dark_nvim.png" width="30%" />
   <img src="media/screenshots/dark_nvim_code.png" width="30%" />
 </div>
-<p><i>Dark Themes</i></p>
+<p><i>Dark Theme</i></p>
 
 <br/>
 
@@ -22,7 +22,7 @@
   <img src="media/screenshots/light_nvim.png" width="30%" />
   <img src="media/screenshots/light_nvim_code.png" width="30%" />
 </div>
-<p><i>Light Themes</i></p>
+<p><i>Light Theme</i></p>
 
 </div>
 

@@ -19,6 +19,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@60", position = "0x0", scale
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("noctalia")
+	hl.exec_cmd("sleep 1 && vesktop")
 	hl.exec_cmd("bash -c 'sleep 2 && wayvnc -o eDP-1 100.102.28.112 5900'")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -172,6 +173,12 @@ hl.window_rule({
 	match = { class = "hyprland-run" },
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+hl.window_rule({
+	name = "vesktop-to-1z",
+	match = { class = "^vesktop$" },
+	workspace = "name:10",
 })
 
 hl.config({
