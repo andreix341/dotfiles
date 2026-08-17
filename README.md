@@ -8,15 +8,22 @@
 ## Screenshots
 
 <div align="center">
-  <img src="media/screenshots/dark_system.png" alt="Dark theme">
-  <img src="media/screenshots/dark_nvim.png" alt="Dark Nvim">
-  <img src="media/screenshots/dark_nvim_code.png" alt="Dark Nvim Code">
+<div style="display:flex; justify-content:center; gap:10px;">
+  <img src="media/screenshots/dark_system.png" width="30%" />
+  <img src="media/screenshots/dark_nvim.png" width="30%" />
+  <img src="media/screenshots/dark_nvim_code.png" width="30%" />
 </div>
+<p><i>Dark Themes</i></p>
 
-<div align="center">
-  <img src="media/screenshots/light_system.png" alt="Light theme">
-  <img src="media/screenshots/light_nvim.png" alt="Light Nvim">
-  <img src="media/screenshots/light_nvim_code.png" alt="Light Nvim Code">
+<br/>
+
+<div style="display:flex; justify-content:center; gap:10px;">
+  <img src="media/screenshots/light_system.png" width="30%" />
+  <img src="media/screenshots/light_nvim.png" width="30%" />
+  <img src="media/screenshots/light_nvim_code.png" width="30%" />
+</div>
+<p><i>Light Themes</i></p>
+
 </div>
 
 ## Stack
