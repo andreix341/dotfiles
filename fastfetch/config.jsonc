@@ -7,8 +7,8 @@
       "left": 2
     },
     "color": {
-      "1": "#8a4fb0",
-      "2": "#5c8a48",
+      "1": "#c963dc",
+      "2": "#bbdc63",
       "3": "#8FB9D8",
       "4": "#98C379",
       "5": "#5FB878"
@@ -16,18 +16,16 @@
   },
   "display": {
     "separator": " :: ",
-    "color": {
-      "keys": "#8a4fb0",
-      "output": "#EEEEEE",
-      "separator": "#6D6964",
-      "title": "#5c8a48"
-    },
     "percent": {
       "color": {
-        "green": "#6b74b8",
-        "yellow": "#571b7e",
-        "red": "#c23b3b"
+        "green": "#d3d3ff",
+        "yellow": "#ce96e9",
+        "red": "#f06c6c"
       }
+    },
+    "color": {
+      "keys": "#c9a0dc",
+      "title": "#bbdca0"
     }
   },
   "modules": [

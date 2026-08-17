@@ -4,6 +4,7 @@
     "/home/pumk/.config/opencode/AGENTS.caveman.md"
   ],
   "permission": {
+    "*": "allow",
     "skill": {
       "caveman": "allow",
       "caveman-commit": "allow",

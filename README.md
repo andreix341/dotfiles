@@ -7,19 +7,17 @@
 
 ## Screenshots
 
-![Fastfetch](media/screenshots/fastfetch.png)
-<p align="center"><i>Fastfetch System Info</i></p>
+<div align="center">
+  <img src="media/screenshots/dark_system.png" alt="Dark theme">
+  <img src="media/screenshots/dark_nvim.png" alt="Dark Nvim">
+  <img src="media/screenshots/dark_nvim_code.png" alt="Dark Nvim Code">
+</div>
 
-![Launcher](media/screenshots/launcher.png)
-<p align="center"><i>App Launcher</i></p>
-
-![Nvim](media/screenshots/nvim.png)
-<p align="center"><i>Nvim</i></p>
-
-![Nvim code](media/screenshots/nvim_code.png)
-<p align="center"><i>Nvim Code</i></p>
-
-![Colors](media/screenshots/colors.png)
+<div align="center">
+  <img src="media/screenshots/light_system.png" alt="Light theme">
+  <img src="media/screenshots/light_nvim.png" alt="Light Nvim">
+  <img src="media/screenshots/light_nvim_code.png" alt="Light Nvim Code">
+</div>
 
 ## Stack
 
@@ -49,13 +47,14 @@ The setup menu supports installing everything (`0`) or configuring each app indi
 
 1. **Neovim** (LazyVim)
 2. **Hyprland**
-3. **Noctalia**
-4. **Fastfetch**
-5. **Kitty**
-6. **Tmux**
-7. **Btop**
-8. **Cava**
-9. **Opencode**
+3. **Noctalia** (v5)
+4. **Noctalia** (v4)
+5. **Fastfetch**
+6. **Kitty**
+7. **Tmux**
+8. **Btop**
+9. **Cava**
+10. **Opencode**
 
 ### SDDM
 

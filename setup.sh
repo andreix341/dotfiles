@@ -3,7 +3,7 @@
 # This script is for configuring specific apps:
 # hypr
 # nvim - lazyvim
-# noctalia
+# noctalia (v5 and v4)
 # fastfetch
 # kitty
 # tmux
@@ -64,13 +64,14 @@ show_menu() {
   echo ""
   echo "1) Neovim (LazyVim)"
   echo "2) Hyprland"
-  echo "3) Noctalia"
-  echo "4) Fastfetch"
-  echo "5) Kitty"
-  echo "6) Tmux"
-  echo "7) Btop"
-  echo "8) Cava"
-  echo "9) OpenCode"
+  echo "3) Noctalia v5"
+  echo "4) Noctalia v4"
+  echo "5) Fastfetch"
+  echo "6) Kitty"
+  echo "7) Tmux"
+  echo "8) Btop"
+  echo "9) Cava"
+  echo "10) OpenCode"
   echo ""
 }
 
@@ -111,25 +112,45 @@ configure_hyprland() {
   success "Hyprland configured!"
 }
 
-# Configure Noctalia
+# Configure Noctalia v5
 
-configure_noctalia() {
-  echo "Configuring Noctalia..."
+configure_noctalia_v5() {
+  echo "Configuring Noctalia v5..."
+
+  install_package noctalia noctalia
+
+  local noctalia_dir="$HOME/.config/noctalia"
+
+  if [ -L "$noctalia_dir" ]; then
+    rm "$noctalia_dir"
+  elif [ -d "$noctalia_dir" ]; then
+    mv "$noctalia_dir" "$noctalia_dir.bak.$(date +%Y%m%d-%H%M%S)"
+  fi
+
+  cp -r "$SCRIPT_DIR/noctalia" "$noctalia_dir"
+  success "Noctalia v5 configured!"
+}
+
+# Configure Noctalia v4
+
+configure_noctalia_v4() {
+  echo "Configuring Noctalia v4..."
 
   local noctalia_dir="$HOME/.config/quickshell/noctalia-shell"
 
-  if [ -d "$noctalia_dir" ]; then
+  if [ -L "$noctalia_dir" ]; then
+    rm "$noctalia_dir"
+  elif [ -d "$noctalia_dir" ]; then
     mv "$noctalia_dir" "$noctalia_dir.bak.$(date +%Y%m%d-%H%M%S)"
     echo "Noctalia directory already exists. Backing up..."
-
   fi
   if ! command -v yay &>/dev/null; then
-    echo "yay (AUR helper) not found. Skipping Noctalia install."
+    echo "yay (AUR helper) not found. Skipping Noctalia v4 install."
     return 1
   fi
   yay -S --noconfirm noctalia-shell
-  cp -r "$SCRIPT_DIR/noctalia" "$noctalia_dir"
-  success "Noctalia configured!"
+  cp -r "$SCRIPT_DIR/noctalia-v4" "$noctalia_dir"
+  success "Noctalia v4 configured!"
 }
 
 # Configure Fastfetch
@@ -268,7 +289,8 @@ while true; do
   0)
     configure_neovim
     configure_hyprland
-    configure_noctalia
+    configure_noctalia_v5
+    configure_noctalia_v4
     configure_fastfetch
     configure_kitty
     configure_tmux
@@ -283,24 +305,27 @@ while true; do
     configure_hyprland
     ;;
   3)
-    configure_noctalia
+    configure_noctalia_v5
     ;;
   4)
-    configure_fastfetch
+    configure_noctalia_v4
     ;;
   5)
-    configure_kitty
+    configure_fastfetch
     ;;
   6)
-    configure_tmux
+    configure_kitty
     ;;
   7)
-    configure_btop
+    configure_tmux
     ;;
   8)
-    configure_cava
+    configure_btop
     ;;
   9)
+    configure_cava
+    ;;
+  10)
     configure_opencode
     ;;
   q)
