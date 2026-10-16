@@ -60,13 +60,6 @@ hl.bind("SUPER + j", hl.dsp.focus({ direction = "down" }))
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
--------------------------
----- WORKSPACE SCROLL ----
--------------------------
-
-hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-
 ------------------------------
 ---- MOVE / RESIZE (MOUSE) ----
 ------------------------------
