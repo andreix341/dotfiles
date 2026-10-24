@@ -6,9 +6,7 @@ ui_scale = 1.0
 [audio]
 enable_overdrive = false
 enable_sounds = false
-notification_sound = ""
 sound_volume = 0.5
-volume_change_sound = ""
 
 [backdrop]
 blur_intensity = 0.5
@@ -77,7 +75,7 @@ capsule_fill = "surface_variant"
 capsule_opacity = 1.0
 capsule_padding = 6.0
 capsule_thickness = 0.75
-center = ["media", "cat_2"]
+center = ["media"]
 concave_edge_corners = true
 contact_shadow = false
 enabled = true
@@ -90,7 +88,6 @@ end = [
   "group:g1",
   "control-center",
 ]
-font_weight = 500
 hover_highlight = true
 layer = "top"
 margin_edge = 0
@@ -149,9 +146,7 @@ end = [
   "volume",
   "notifications",
   "control-center",
-  "bar",
 ]
-font_weight = 500
 hover_highlight = true
 layer = "top"
 margin_edge = 0
@@ -269,7 +264,6 @@ magnification_scale = 1.4500000476837158
 main_axis_padding = 16
 margin_edge = 0
 margin_ends = 0
-monitors = []
 pinned = []
 position = "bottom"
 radius = 16
@@ -528,12 +522,6 @@ panel_position = "top_right"
 panel_placement = "floating"
 short-break-duration = 10
 work-duration = 50
-
-[plugin_settings."weinguyen/opencode-companion"]
-show_reasoning = true
-
-[plugin_settings."yuuto/arch-updater"]
-aur_helper = "yay"
 
 [plugins]
 auto_update = "all"
@@ -820,11 +808,6 @@ bands = 23
 type = "audio_visualizer"
 width = 177
 
-[widget.bar]
-capsule = true
-show_count = false
-type = "rylos/tailnet:bar"
-
 [widget.bar_2]
 type = "yuuto/calculator:bar"
 
@@ -835,9 +818,6 @@ cat_size = 30
 enable_scroll = false
 type = "dotnetrob/cat:cat"
 walk_threshold = 10
-
-[widget.cat_2]
-type = "noctalia/bongocat:cat"
 
 [widget.clock]
 anchor = true
