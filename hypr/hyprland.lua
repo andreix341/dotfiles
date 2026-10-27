@@ -176,6 +176,12 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "kcalc-floating",
+	match = { class = "^org%.kde%.kcalc$" },
+	float = true,
+})
+
+hl.window_rule({
 	name = "vesktop-to-1z",
 	match = { class = "^vesktop$" },
 	workspace = "name:10",
