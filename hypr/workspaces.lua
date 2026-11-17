@@ -35,13 +35,13 @@ end
 
 -- HDMI-A-1 workspaces: SUPER + z/x/c/v
 local hdmi_keys = {
-	{ key = "z", ws = "10" },
-	{ key = "x", ws = "20" },
-	{ key = "c", ws = "30" },
-	{ key = "v", ws = "40" },
+	{ key = "z", ws = 10 },
+	{ key = "x", ws = 20 },
+	{ key = "c", ws = 30 },
+	{ key = "v", ws = 40 },
 }
 
 for _, entry in ipairs(hdmi_keys) do
-	hl.bind("SUPER + " .. entry.key, hl.dsp.focus({ workspace = "name:" .. entry.ws }))
-	hl.bind("SUPER + SHIFT + " .. entry.key, hl.dsp.window.move({ workspace = "name:" .. entry.ws }))
+	hl.bind("SUPER + " .. entry.key, hl.dsp.focus({ workspace = entry.ws }))
+	hl.bind("SUPER + SHIFT + " .. entry.key, hl.dsp.window.move({ workspace = entry.ws }))
 end

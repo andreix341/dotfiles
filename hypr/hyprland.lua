@@ -182,6 +182,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "file-roller-floating-centered",
+	match = { class = "^org[.]gnome[.]FileRoller$" },
+	float = true,
+	center = true,
+	size = { 1000, 700 },
+})
+
+hl.window_rule({
 	name = "vesktop-to-1z",
 	match = { class = "^vesktop$" },
 	workspace = "name:10",

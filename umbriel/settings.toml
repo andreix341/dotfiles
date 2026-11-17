@@ -1,0 +1,99 @@
+[general]
+mod_key = "Super"
+show_cheatsheet = false
+xwayland_native_resolution = true
+autostart = [
+  "noctalia",
+  "sleep 1 && vesktop",
+  "bash -c 'sleep 2 && wayvnc -o eDP-1 100.102.28.112 5900'",
+  "wl-paste --type text --watch cliphist store",
+  "wl-paste --type image --watch cliphist store",
+  "systemctl --user start hyprpolkitagent",
+  "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+]
+
+[environment]
+XCURSOR_THEME = "Bibata-Modern-Classic"
+XCURSOR_SIZE = "20"
+HYPRCURSOR_THEME = "Bibata-Modern-Classic"
+HYPRCURSOR_SIZE = "20"
+
+[output."eDP-1"]
+mode = "1920x1080@144.15"
+position = [1920, 0]
+scale = 1
+bit_depth = 10
+workspaces = ["1", "2", "3", "4", "5"]
+
+[output."HDMI-A-1"]
+mode = "1920x1080@60.00"
+position = [0, 32]
+scale = 1
+bit_depth = 10
+workspaces = ["Z", "X", "C", "V"]
+
+[appearance]
+border_width = 1
+outer_border_width = 0
+corner_radius = 7
+drag_opacity = 1.0
+prefer_no_csd = true
+opaque_fullscreen = true
+
+[appearance.blur]
+enabled = true
+optimized = false
+passes = 1
+radius = 3
+noise = 0.0
+brightness = 1.0
+contrast = 1.0
+saturation = 1.1696
+
+[appearance.shadow]
+enabled = true
+offset_x = 0
+offset_y = 0
+softness = 4
+
+[colors]
+insert_hint = "#00000000"
+shadow = "#1A1A1AEE"
+
+[colors.border]
+focused = "#C792EA99"
+unfocused = "#595959AA"
+
+[layout]
+mode = "dwindle"
+gap = 4
+
+[layout.dwindle]
+preserve_split = true
+
+[layout.master]
+new_becomes_master = true
+
+[input]
+middle_click_paste = false
+
+[input.keyboard]
+layout = "us,ro"
+variant = ""
+model = ""
+options = ""
+
+[input.focus]
+follows_mouse = "sloppy"
+
+[input.mouse]
+sensitivity = 0
+
+[input.touchpad]
+natural_scroll = true
+sensitivity = 0
+
+[input.cursor]
+theme = "Bibata-Modern-Classic"
+size = 20
+hardware_cursor = false

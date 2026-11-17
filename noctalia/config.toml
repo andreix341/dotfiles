@@ -19,10 +19,10 @@ order = ["default"]
 [bar.default]
 auto_hide = false
 background_opacity = 0.0
-border = "outline"
+border = "outline_variant"
 border_width = 0.0
 capsule = true
-capsule_fill = "surface_variant"
+capsule_fill = "surface_container"
 capsule_group = []
 capsule_opacity = 1.0
 capsule_padding = 6.0
@@ -68,10 +68,10 @@ middle = "settings-toggle"
 [bar.default.monitor.HDMI-A-1]
 auto_hide = false
 background_opacity = 0.0
-border = "outline"
+border = "outline_variant"
 border_width = 0.0
 capsule = true
-capsule_fill = "surface_variant"
+capsule_fill = "surface_container"
 capsule_opacity = 1.0
 capsule_padding = 6.0
 capsule_thickness = 0.75
@@ -117,7 +117,7 @@ middle = "settings-toggle"
 accordion = false
 accordion_direction = "end"
 enabled = true
-fill = "surface_variant"
+fill = "surface_container"
 id = "g1"
 members = ["cpu", "ram", "sysmon"]
 opacity = 1.0
@@ -126,10 +126,10 @@ padding = 6.0
 [bar.default.monitor.eDP-1]
 auto_hide = false
 background_opacity = 0.0
-border = "outline"
+border = "outline_variant"
 border_width = 0.0
 capsule = true
-capsule_fill = "surface_variant"
+capsule_fill = "surface_container"
 capsule_group = []
 capsule_opacity = 1.0
 capsule_padding = 6.0
@@ -245,7 +245,7 @@ active_opacity = 1.0
 active_scale = 1.0
 auto_hide = true
 background_opacity = 0.87999999523162842
-border = "outline"
+border = "outline_variant"
 border_width = 0.0
 concave_edge_corners = true
 cross_axis_padding = 8
@@ -399,7 +399,7 @@ rotation = 0.0
 type = "login_box"
 
 [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-background_color = "surface_variant"
+background_color = "surface_container"
 background_opacity = 0.88
 background_radius = 12.0
 center_password_text = false
@@ -425,7 +425,7 @@ rotation = 0.0
 type = "login_box"
 
 [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-background_color = "surface_variant"
+background_color = "surface_container"
 background_opacity = 0.5
 background_radius = 12.0
 center_password_text = true
@@ -548,7 +548,6 @@ location = "https://github.com/noctalia-dev/community-plugins"
 name = "community"
 
 [shell]
-app_icon_colorize = false
 avatar_path = ""
 button_borders = true
 card_borders = true
@@ -599,6 +598,7 @@ fetch_exchange_rates = true
 provider_prefix = "/"
 show_icons = true
 sort_by_usage = true
+pinned = ["zen"]
 
 [shell.launcher.dmenu]
 
@@ -663,7 +663,7 @@ show_shortcuts = true
 
 [[shell.session.actions]]
 action = "shutdown"
-command = "hyprshutdown --post-cmd 'systemctl poweroff'"
+command = "/home/pumk/.local/bin/umbriel-graceful-power poweroff"
 countdown_seconds = 0.0
 enabled = true
 glyph = ""
@@ -673,7 +673,7 @@ variant = "destructive"
 
 [[shell.session.actions]]
 action = "reboot"
-command = "hyprshutdown --post-cmd 'reboot'"
+command = "/home/pumk/.local/bin/umbriel-graceful-power reboot"
 countdown_seconds = 0.0
 enabled = true
 glyph = ""

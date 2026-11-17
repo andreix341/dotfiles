@@ -43,7 +43,7 @@ hl.bind(
 	{ release = true }
 )
 -- Vesktop push-to-mute (mouse thumb button → Ctrl+Shift+M in Vesktop)
-hl.bind("mouse:277", hl.dsp.send_shortcut({ mods = "ctrl_shift", key = "M", window = "class:^(vesktop)$" }))
+hl.bind("mouse:277", hl.dsp.send_shortcut({ mods = "ctrl_shift", key = "M", window = "class:^(vesktop)$" }), { mouse = true })
 ------------------
 ---- FOCUS -------
 ------------------

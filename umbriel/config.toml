@@ -1,0 +1,12 @@
+# Umbriel configuration matched to ~/.config/hypr/hyprland.lua and its
+# required binds.lua, workspaces.lua, and hyprmon.lua files.
+
+[include]
+files = [
+  "settings.toml",
+  "animation.toml",
+  "controls.toml",
+]
+
+[include.optional]
+files = ["noctalia.toml"]

@@ -1,0 +1,8 @@
+schema_version = 1
+
+[browser]
+always_show_status_bar = true
+chooser_show_preview = true
+show_hidden = true
+sidebar_width = 213
+view_mode = "list"

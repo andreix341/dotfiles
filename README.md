@@ -30,7 +30,7 @@
 
 | Component  | Choice                                             |
 | ---------- | -------------------------------------------------- |
-| **WM**     | [Hyprland](https://hyprland.org/)                  |
+| **WM**     | [Umbriel](https://docs.noctalia.dev/umbriel/)       |
 | **Bar**    | [Noctalia](https://github.com/Noctalia-Project)     |
 | **Terminal** | [Kitty](https://sw.kovidgoyal.net/kitty/)          |
 | **Shell**  | [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/) |
@@ -53,15 +53,18 @@ chmod +x setup.sh
 The setup menu supports installing everything (`0`) or configuring each app individually:
 
 1. **Neovim** (LazyVim)
-2. **Hyprland**
-3. **Noctalia** (v5)
-4. **Noctalia** (v4)
-5. **Fastfetch**
-6. **Kitty**
-7. **Tmux**
-8. **Btop**
-9. **Cava**
-10. **Opencode**
+2. **Umbriel**
+3. **Hyprland**
+4. **Noctalia** (v5)
+5. **Noctalia** (v4)
+6. **Fastfetch**
+7. **Kitty**
+8. **Tmux**
+9. **Btop**
+10. **Cava**
+11. **Opencode**
+
+Selecting **Umbriel** backs up any existing `~/.config/umbriel` directory and installs the repository configuration.
 
 ### SDDM
 
