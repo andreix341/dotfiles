@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script is for configuring specific apps:
+# umbriel
 # hypr
 # nvim - lazyvim
 # noctalia (v5 and v4)
@@ -63,15 +64,16 @@ show_menu() {
   echo "q) Quit"
   echo ""
   echo "1) Neovim (LazyVim)"
-  echo "2) Hyprland"
-  echo "3) Noctalia v5"
-  echo "4) Noctalia v4"
-  echo "5) Fastfetch"
-  echo "6) Kitty"
-  echo "7) Tmux"
-  echo "8) Btop"
-  echo "9) Cava"
-  echo "10) OpenCode"
+  echo "2) Umbriel"
+  echo "3) Hyprland"
+  echo "4) Noctalia v5"
+  echo "5) Noctalia v4"
+  echo "6) Fastfetch"
+  echo "7) Kitty"
+  echo "8) Tmux"
+  echo "9) Btop"
+  echo "10) Cava"
+  echo "11) OpenCode"
   echo ""
 }
 
@@ -110,6 +112,39 @@ configure_hyprland() {
 
   cp -r "$SCRIPT_DIR/hypr" "$hyprland_dir"
   success "Hyprland configured!"
+}
+
+# Configure Umbriel
+configure_umbriel() {
+  echo "Configuring Umbriel..."
+
+  if ! command -v umbriel &>/dev/null; then
+    if [ "$DISTRO" = "Arch" ] && command -v yay &>/dev/null; then
+      read -p "Umbriel is not installed. Install umbriel-git? [Y/n] " answer
+      case "${answer:-Y}" in
+      [Yy]*)
+        yay -S --noconfirm umbriel-git || return 1
+        ;;
+      *)
+        echo "Skipping installation of umbriel-git."
+        return 1
+        ;;
+      esac
+    else
+      install_package umbriel umbriel || return 1
+    fi
+  fi
+
+  local umbriel_dir="$HOME/.config/umbriel"
+
+  if [ -L "$umbriel_dir" ]; then
+    rm "$umbriel_dir"
+  elif [ -d "$umbriel_dir" ]; then
+    mv "$umbriel_dir" "$umbriel_dir.bak.$(date +%Y%m%d-%H%M%S)"
+  fi
+
+  cp -r "$SCRIPT_DIR/umbriel" "$umbriel_dir"
+  success "Umbriel configured!"
 }
 
 # Configure Noctalia v5
@@ -288,6 +323,7 @@ while true; do
   case $choice in
   0)
     configure_neovim
+    configure_umbriel
     configure_hyprland
     configure_noctalia_v5
     configure_noctalia_v4
@@ -302,30 +338,33 @@ while true; do
     configure_neovim
     ;;
   2)
-    configure_hyprland
+    configure_umbriel
     ;;
   3)
-    configure_noctalia_v5
+    configure_hyprland
     ;;
   4)
-    configure_noctalia_v4
+    configure_noctalia_v5
     ;;
   5)
-    configure_fastfetch
+    configure_noctalia_v4
     ;;
   6)
-    configure_kitty
+    configure_fastfetch
     ;;
   7)
-    configure_tmux
+    configure_kitty
     ;;
   8)
-    configure_btop
+    configure_tmux
     ;;
   9)
-    configure_cava
+    configure_btop
     ;;
   10)
+    configure_cava
+    ;;
+  11)
     configure_opencode
     ;;
   q)
