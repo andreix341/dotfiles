@@ -531,7 +531,6 @@ enabled = [
   "thepunkoff/pomodoro",
   "davemhammer/tailscale",
   "yuuto/calculator",
-  "profidev/hypr-screen-mirror",
   "alexander/screen-toolkit",
 ]
 
@@ -663,7 +662,7 @@ show_shortcuts = true
 
 [[shell.session.actions]]
 action = "shutdown"
-command = "/home/pumk/.local/bin/umbriel-graceful-power poweroff"
+command = "systemctl poweroff"
 countdown_seconds = 0.0
 enabled = true
 glyph = ""
@@ -673,7 +672,7 @@ variant = "destructive"
 
 [[shell.session.actions]]
 action = "reboot"
-command = "/home/pumk/.local/bin/umbriel-graceful-power reboot"
+command = "systemctl reboot"
 countdown_seconds = 0.0
 enabled = true
 glyph = ""
@@ -703,7 +702,7 @@ variant = "default"
 
 [[shell.session.actions]]
 action = "logout"
-command = ""
+command = "umbriel msg session-quit skip-confirmation"
 countdown_seconds = 0.0
 enabled = true
 glyph = ""

@@ -1,0 +1,3 @@
+[theme.templates.user.luciole]
+input_path = "~/.config/noctalia/templates/luciole.toml"
+output_path = "~/.config/luciole/colors.toml"

@@ -35,7 +35,7 @@
 | **Terminal** | [Kitty](https://sw.kovidgoyal.net/kitty/)          |
 | **Shell**  | [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/) |
 | **Editor** | [Neovim](https://neovim.io/) ([LazyVim](https://www.lazyvim.org/)) |
-| **File Manager** | [Thunar](https://docs.xfce.org/xfce/thunar/start) |
+| **File Manager** | [Luciole](https://docs.noctalia.dev/luciole/) |
 | **Multiplexer** | [tmux](https://github.com/tmux/tmux)  |
 | **Font** | [GohuFont](https://github.com/GohuFont/GohuFont) |
 
@@ -63,6 +63,7 @@ The setup menu supports installing everything (`0`) or configuring each app indi
 9. **Btop**
 10. **Cava**
 11. **Opencode**
+12. **Luciole**
 
 Selecting **Umbriel** backs up any existing `~/.config/umbriel` directory and installs the repository configuration.
 

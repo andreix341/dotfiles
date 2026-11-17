@@ -6,7 +6,7 @@ accent_primary = "#c9a0dcFF"
 accent_secondary = "#bbdca0FF"
 warning = "#d3d3ffFF"
 error = "#f06c6cFF"
-insert_hint = "#00000000"
+insert_hint = "#d3d3ff80"
 backdrop = "#1a1a1aFF"
 
 [colors.border]

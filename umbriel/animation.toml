@@ -1,13 +1,13 @@
 [animation]
 enabled = true
-duration_ms = 250
+duration_ms = 150
 curve = "easeout"
 
 [animation.windows_in]
 enabled = true
-curve = "spring:1,900"
-style = "popin"
-scale = 0.5
+duration_ms = 150
+curve = "ease"
+style = "zoom"
 
 [animation.windows_out]
 enabled = true

@@ -2,6 +2,7 @@
 
 # This script is for configuring specific apps:
 # umbriel
+# luciole
 # hypr
 # nvim - lazyvim
 # noctalia (v5 and v4)
@@ -74,6 +75,7 @@ show_menu() {
   echo "9) Btop"
   echo "10) Cava"
   echo "11) OpenCode"
+  echo "12) Luciole"
   echo ""
 }
 
@@ -315,6 +317,32 @@ configure_opencode() {
   success "OpenCode configured!"
 }
 
+# Install Luciole while keeping Thunar available for existing scripts
+configure_luciole() {
+  echo "Configuring Luciole..."
+
+  install_package thunar thunar
+
+  if ! command -v luciole &>/dev/null; then
+    if [ "$DISTRO" = "Arch" ] && command -v yay &>/dev/null; then
+      read -p "Luciole is not installed. Install luciole-git? [Y/n] " answer
+      case "${answer:-Y}" in
+      [Yy]*)
+        yay -S --noconfirm luciole-git || return 1
+        ;;
+      *)
+        echo "Skipping installation of luciole-git."
+        return 1
+        ;;
+      esac
+    else
+      install_package luciole luciole || return 1
+    fi
+  fi
+
+  success "Luciole configured!"
+}
+
 while true; do
   clear
   show_menu
@@ -333,6 +361,7 @@ while true; do
     configure_btop
     configure_cava
     configure_opencode
+    configure_luciole
     ;;
   1)
     configure_neovim
@@ -366,6 +395,9 @@ while true; do
     ;;
   11)
     configure_opencode
+    ;;
+  12)
+    configure_luciole
     ;;
   q)
     exit 0
